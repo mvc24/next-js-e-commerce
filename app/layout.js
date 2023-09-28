@@ -18,11 +18,13 @@ export default function RootLayout({ children }) {
             <Link href="/">Home</Link>
             <Link href="/about ">About</Link>
             <Link href="/catalogue">Catalogue</Link>
+            <Link href="/ordering-shipping">Ordering & Shipping</Link>
             <Link href="/cart">Cart</Link>
           </div>
         </nav>
 
         {children}
+        <footer>Footer</footer>
       </body>
     </html>
   );

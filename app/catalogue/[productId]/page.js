@@ -9,7 +9,9 @@ export function generateMetadata({ params }) {
 }
 
 export default function ItemPage(props) {
-  const singleItem = getItem(Number(props.params.itemId));
+  const singleItem = getItem(Number(props.params.productId));
+  console.log(singleItem);
+  console.log(props.params);
   if (!singleItem) {
     return notFound();
   }
@@ -17,18 +19,20 @@ export default function ItemPage(props) {
     <div>
       This is a single product page
       <h1>
-        {singleItem.composerFirstName} {singleItem.composerLastName} |{' '}
+        {singleItem.composerFirstName} {singleItem.composerLastName} |
         {singleItem.title}
         <div>This will be an image</div>
         <p>this is some information about {singleItem.title}</p>
         <div>
-          <span>€</span>{' '}
+          <span>€ </span>
           <span data-test-id="product-price">{singleItem.price}</span>
           <input
             data-test-id="product-quantity"
             type="number"
             defaultValue={1}
+            min={1}
           />
+          <button>Add to cart</button>
         </div>
       </h1>
     </div>

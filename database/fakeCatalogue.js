@@ -4,6 +4,7 @@ const items = [
     composerFirstName: 'William',
     composerLastName: 'Lawes',
     title: 'Pavane',
+
     price: 10,
   },
   {

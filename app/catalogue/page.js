@@ -20,6 +20,7 @@ export default function Catalogue() {
                 <br />
                 {item.title}
                 <br />
+                <div>IMAGE!</div>
               </div>
             </Link>
           </div>
