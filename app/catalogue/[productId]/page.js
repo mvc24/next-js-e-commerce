@@ -32,7 +32,7 @@ export default function ItemPage(props) {
             defaultValue={1}
             min={1}
           />
-          <button>Add to cart</button>
+          <button data-test-id="product-add-to-cart">Add to cart</button>
         </div>
       </h1>
     </div>
