@@ -12,7 +12,7 @@ import { parseJson } from '../../../util/json';
 export async function createOrUpdateCart(itemId, quantity) {
   const cartCookie = getCookie('cart');
   const cart = !cartCookie ? [] : parseJson(cartCookie);
-  console.log(itemId, quantity);
+
   const cartToUpdate = cart.find((cartItem) => {
     return cartItem.id === itemId;
   });
