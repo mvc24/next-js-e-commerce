@@ -38,9 +38,6 @@ export default function Cart() {
   );
   console.log(totalPrice);
 
-  /*  const totalPriceReducer = (itemSubtotal, currentValue) =>
-    itemSubtotal + currentValue; */
-
   console.log(addItemsToCart);
   return (
     <>
@@ -50,10 +47,10 @@ export default function Cart() {
         return (
           <div key={`item-${item.id}`}>
             <div data-test-id={`cart-product-${item.id}`}>
-              <div>{item.title}</div>
+              <div>{`Title: ${item.title}`}</div>
 
               <div>
-                {item.composerFirstName} {item.composerLastName}
+                {`Composer: ${item.composerFirstName} ${item.composerLastName}`}
               </div>
               <div data-test-id={`cart-product-quantity-${item.quantity}`}>
                 {`Quantity:

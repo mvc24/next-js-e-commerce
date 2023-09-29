@@ -14,7 +14,6 @@ export async function deleteItem(itemId) {
     return cartItem.id !== itemId;
   });
 
-  console.log('test', itemToDelete);
   if (itemToDelete) {
     itemToDelete.quantity = undefined;
   }
