@@ -21,8 +21,8 @@ export async function createOrUpdateCart(itemId, quantity) {
     cartToUpdate.quantity += quantity;
   } else {
     cart.push({
-      id: itemId,
-      quantity: quantity,
+      id: Number(itemId),
+      quantity: Number(quantity),
     });
   }
   await cookies().set('cart', JSON.stringify(cart));

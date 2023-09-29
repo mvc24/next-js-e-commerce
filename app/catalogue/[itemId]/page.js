@@ -1,7 +1,5 @@
 import { notFound } from 'next/navigation';
 import { getItem } from '../../../database/fakeCatalogue';
-import { getCookie } from '../../../util/cookies';
-import { parseJson } from '../../../util/json';
 import AddItem from './AddItem';
 
 export function generateMetadata({ params }) {
@@ -13,8 +11,7 @@ export function generateMetadata({ params }) {
 
 export default function ItemPage(props) {
   const singleItem = getItem(Number(props.params.itemId));
-  /*   console.log(singleItem);
-  console.log(props.params); */
+
   if (!singleItem) {
     return notFound();
   }
