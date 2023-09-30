@@ -9,7 +9,7 @@ export const metadata = {
   description: 'Your shopping cart',
 };
 
-export function getCartItems() {
+export function addToCart() {
   const allItemsFromCookie = getCookie('cart');
   const parsedCookie = parseJson(allItemsFromCookie);
 
@@ -28,7 +28,7 @@ export function getCartItems() {
 }
 
 export function numberOfItemsInCart() {
-  const addItemsToCart = getCartItems();
+  const addItemsToCart = addToCart();
   const itemCount = addItemsToCart.reduce(
     (accumulator, currentValue) => accumulator + currentValue.quantity,
     0,
@@ -38,7 +38,7 @@ export function numberOfItemsInCart() {
 }
 
 export function calculateTotalPrice() {
-  const addItemsToCart = getCartItems();
+  const addItemsToCart = addToCart();
   const itemsToCalculate = addItemsToCart;
   const totalPrice = itemsToCalculate.reduce(
     (accumulator, currentValue) =>
@@ -49,24 +49,14 @@ export function calculateTotalPrice() {
   return totalPrice;
 }
 
-export default function Cart(props) {
-  const addItemsToCart = getCartItems();
+export default function Cart() {
+  const addItemsToCart = addToCart();
   const totalPrice = calculateTotalPrice();
-  const itemCount = numberOfItemsInCart();
 
   function itemSubtotal(quantity, price) {
     return quantity * price;
   }
-  /*
-  const totalPrice = addItemsToCart.reduce(
-    (accumulator, currentValue) =>
-      accumulator + currentValue.price * currentValue.quantity,
-    0,
-  );
-  console.log(totalPrice); */
 
-  props.itemCount = itemCount;
-  props.totalPrice = totalPrice;
   return (
     <>
       <div>this is your cart!</div>
