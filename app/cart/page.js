@@ -9,17 +9,14 @@ export const metadata = {
   description: 'Your shopping cart',
 };
 
-export default function Cart() {
+export function getCartItems() {
   const allItemsFromCookie = getCookie('cart');
   const parsedCookie = parseJson(allItemsFromCookie);
-
-  console.log(parsedCookie);
 
   const addUnfilteredItemsToCart = items.map((item) => {
     const matchIdWithIdFromCookie = parsedCookie.find(
       (itemInCartId) => item.id === itemInCartId.id,
     );
-    console.log(matchIdWithIdFromCookie);
     return { ...item, quantity: matchIdWithIdFromCookie?.quantity };
   });
 
@@ -27,18 +24,49 @@ export default function Cart() {
     return item.quantity !== undefined;
   });
 
+  return addItemsToCart;
+}
+
+export function numberOfItemsInCart() {
+  const addItemsToCart = getCartItems();
+  const itemCount = addItemsToCart.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.quantity,
+    0,
+  );
+
+  return itemCount;
+}
+
+export function calculateTotalPrice() {
+  const addItemsToCart = getCartItems();
+  const itemsToCalculate = addItemsToCart;
+  const totalPrice = itemsToCalculate.reduce(
+    (accumulator, currentValue) =>
+      accumulator + currentValue.price * currentValue.quantity,
+    0,
+  );
+
+  return totalPrice;
+}
+
+export default function Cart(props) {
+  const addItemsToCart = getCartItems();
+  const totalPrice = calculateTotalPrice();
+  const itemCount = numberOfItemsInCart();
+
   function itemSubtotal(quantity, price) {
     return quantity * price;
   }
-
+  /*
   const totalPrice = addItemsToCart.reduce(
     (accumulator, currentValue) =>
       accumulator + currentValue.price * currentValue.quantity,
     0,
   );
-  console.log(totalPrice);
+  console.log(totalPrice); */
 
-  console.log(addItemsToCart);
+  props.itemCount = itemCount;
+  props.totalPrice = totalPrice;
   return (
     <>
       <div>this is your cart!</div>
@@ -63,7 +91,7 @@ export default function Cart() {
         );
       })}
       <div>total price € {totalPrice} </div>
-      <GoToCheckoutButton totalPrice={totalPrice} />
+      <GoToCheckoutButton />
     </>
   );
 }
