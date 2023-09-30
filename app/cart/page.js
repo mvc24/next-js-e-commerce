@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import { items } from '../../database/fakeCatalogue';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
+import GoToCheckoutButton from './GoToCheckoutButton';
 import RemoveItemButton from './RemoveItemButton';
 
 export const metadata = {
@@ -63,7 +63,7 @@ export default function Cart() {
         );
       })}
       <div>total price € {totalPrice} </div>
-      <Link href="/cart/checkout">Checkout</Link>
+      <GoToCheckoutButton totalPrice={totalPrice} />
     </>
   );
 }
