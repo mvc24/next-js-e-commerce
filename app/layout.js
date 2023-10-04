@@ -1,6 +1,8 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import { getCookie } from '../util/cookies';
+import { parseJson } from '../util/json';
 import Header from './Header';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -11,6 +13,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const allItemsFromCookie = getCookie('cart');
+  const parsedCookie = parseJson(allItemsFromCookie);
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -21,7 +26,7 @@ export default function RootLayout({ children }) {
             <Link href="/catalogue">Catalogue</Link>
             <Link href="/ordering-shipping">Ordering & Shipping</Link>
           </div>
-          <Header />
+          <Header itemsInCart={parsedCookie} />
         </nav>
 
         {children}

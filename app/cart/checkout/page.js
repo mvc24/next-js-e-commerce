@@ -1,4 +1,5 @@
 import { calculateTotalPrice } from '../page';
+import CheckoutForm from './CheckoutForm';
 
 export const metadata = {
   title: 'Checkout',
@@ -12,7 +13,7 @@ export default function Checkout() {
     <>
       <h1>Checkout</h1>
 
-      <div>There will be input fields for the address etc.</div>
+      <CheckoutForm />
       <div>Order summary</div>
       <div>{`Total Price: € ${totalPrice}`} </div>
     </>

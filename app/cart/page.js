@@ -11,7 +11,12 @@ export const metadata = {
 
 export function addToCart() {
   const allItemsFromCookie = getCookie('cart');
+
   const parsedCookie = parseJson(allItemsFromCookie);
+  console.log('log', parsedCookie);
+  if (parsedCookie === 'undefined') {
+    return 'your cart is empty';
+  }
 
   const addUnfilteredItemsToCart = items.map((item) => {
     const matchIdWithIdFromCookie = parsedCookie.find(
@@ -25,16 +30,6 @@ export function addToCart() {
   });
 
   return addItemsToCart;
-}
-
-export function numberOfItemsInCart() {
-  const addItemsToCart = addToCart();
-  const itemCount = addItemsToCart.reduce(
-    (accumulator, currentValue) => accumulator + currentValue.quantity,
-    0,
-  );
-
-  return itemCount;
 }
 
 export function calculateTotalPrice() {
