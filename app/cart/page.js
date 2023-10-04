@@ -18,14 +18,14 @@ export function addToCart() {
     return 'your cart is empty';
   }
 
-  const addUnfilteredItemsToCart = items.map((item) => {
+  const combineCartAndProductInformation = items.map((item) => {
     const matchIdWithIdFromCookie = parsedCookie.find(
       (itemInCartId) => item.id === itemInCartId.id,
     );
     return { ...item, quantity: matchIdWithIdFromCookie?.quantity };
   });
 
-  const addItemsToCart = addUnfilteredItemsToCart.filter((item) => {
+  const addItemsToCart = combineCartAndProductInformation.filter((item) => {
     return item.quantity !== undefined;
   });
 

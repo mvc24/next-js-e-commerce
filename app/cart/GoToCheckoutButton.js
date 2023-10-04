@@ -2,13 +2,12 @@
 
 import { useRouter } from 'next/navigation';
 
-export default function GoToCheckoutButton(props) {
+export default function GoToCheckoutButton() {
   const router = useRouter();
   return (
     <button
-      onClick={async () => {
-        await props.totalPrice;
-        router.push('/cart/checkout');
+      onClick={() => {
+        router.push('/cart/thanks');
       }}
     >
       Go to Checkout

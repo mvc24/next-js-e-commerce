@@ -1,6 +1,5 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
-import Link from 'next/link';
 import { getCookie } from '../util/cookies';
 import { parseJson } from '../util/json';
 import Header from './Header';
@@ -20,12 +19,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <nav>
-          <div>
-            <Link href="/">Home</Link>
-            <Link href="/about ">About</Link>
-            <Link href="/catalogue">Catalogue</Link>
-            <Link href="/ordering-shipping">Ordering & Shipping</Link>
-          </div>
           <Header itemsInCart={parsedCookie} />
         </nav>
 

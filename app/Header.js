@@ -9,6 +9,12 @@ export default function Header(props) {
 
   return (
     <header>
+      <div>
+        <Link href="/">Home</Link>
+        <Link href="/about ">About</Link>
+        <Link href="/catalogue">Catalogue</Link>
+        <Link href="/ordering-shipping">Ordering & Shipping</Link>
+      </div>
       <Link
         data-test-id="cart-link"
         href="/cart"

@@ -1,3 +1,5 @@
+// delete the cookie from here, now it would only work with a cookie
+
 export default function ThankYouPage() {
   return (
     <>
