@@ -17,6 +17,7 @@ export function addToCart() {
   if (parsedCookie === 'undefined') {
     return 'your cart is empty';
   }
+  // what should my code do if it doesn't find anything - find can always return undefined!
 
   const combineCartAndProductInformation = items.map((item) => {
     const matchIdWithIdFromCookie = parsedCookie.find(

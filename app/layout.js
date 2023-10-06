@@ -1,10 +1,13 @@
 import './globals.scss';
-import { Inter } from 'next/font/google';
+import { Cormorant_Garamond } from 'next/font/google';
 import { getCookie } from '../util/cookies';
 import { parseJson } from '../util/json';
 import Header from './Header';
 
-const inter = Inter({ subsets: ['latin'] });
+const mainFont = Cormorant_Garamond({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+});
 
 export const metadata = {
   title: { default: 'Oriana Music', template: '%s | Oriana Music' },
@@ -17,7 +20,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={mainFont.className}>
         <nav>
           <Header itemsInCart={parsedCookie} />
         </nav>

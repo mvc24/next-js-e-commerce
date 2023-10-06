@@ -1,0 +1,22 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+.heroImageContainer {
+  position: relative;
+  font-size: 2rem;
+  line-height: 3rem;
+  text-align: center;
+  padding-top: 40vh;
+}
+.heroImage {
+  position: absolute;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1;
+}
