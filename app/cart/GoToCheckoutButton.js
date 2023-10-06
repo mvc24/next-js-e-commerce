@@ -7,7 +7,7 @@ export default function GoToCheckoutButton() {
   return (
     <button
       onClick={() => {
-        router.push('/cart/thanks');
+        router.push('/cart/checkout');
       }}
     >
       Go to Checkout

@@ -1,0 +1,29 @@
+/* SCSS HEX */
+$licorice: #241104ff;
+$beige: #f4f4ddff;
+$gunmetal: #142e2fff;
+$cambridge-blue: #768f84ff;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $beige;
+  color: $gunmetal;
+}
+
+nav {
+  width: 100vw;
+  height: 4rem;
+  background: $cambridge-blue;
+  color: $gunmetal;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  > div a {
+    margin: 4px;
+  }
+}
