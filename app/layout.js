@@ -15,18 +15,18 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const year = new Date().getFullYear();
   const allItemsFromCookie = getCookie('cart');
   const parsedCookie = parseJson(allItemsFromCookie);
 
   return (
     <html lang="en">
       <body className={mainFont.className}>
-        <nav>
+        <nav className="navigation">
           <Header itemsInCart={parsedCookie} />
         </nav>
-
-        {children}
-        <footer>Footer</footer>
+        <div className="content">{children}</div>
+        <footer>© {year} Richard W. Carter </footer>
       </body>
     </html>
   );

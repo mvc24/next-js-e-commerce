@@ -20,17 +20,3 @@ h1,
   color: $gunmetal;
   font-weight: 700;
 }
-
-nav {
-  width: 100vw;
-  height: 4rem;
-  background: $cambridge-blue;
-  color: $gunmetal;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  > div a {
-    margin: 4px;
-  }
-}

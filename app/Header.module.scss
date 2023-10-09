@@ -1,0 +1,21 @@
+/* SCSS HEX */
+$licorice: #241104ff;
+$beige: #f4f4ddff;
+$gunmetal: #142e2fff;
+$cambridge-blue: #768f84ff;
+
+.navigation {
+  width: 100vw;
+  height: 4rem;
+  background: $cambridge-blue;
+  color: #768f84;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  column-gap: 1rem;
+
+  .navLinks {
+    gap: 1rem;
+  }
+  .navCart {
+  }
+}

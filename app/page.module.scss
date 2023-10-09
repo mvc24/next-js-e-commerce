@@ -8,15 +8,22 @@
 }
 
 .heroImageContainer {
-  position: relative;
   font-size: 2rem;
   line-height: 3rem;
   text-align: center;
-  padding-top: 40vh;
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .heroImage {
+    position: absolute;
+    width: 100vw;
+    overflow: hidden;
+    z-index: -1;
+  }
 }
-.heroImage {
-  position: absolute;
-  width: 100vw;
-  overflow: hidden;
-  z-index: -1;
+
+footer {
 }
