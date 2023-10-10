@@ -1,0 +1,267 @@
+type Composer = {
+  id: number;
+  last_name: string;
+  first_name: string;
+  first_abbreviation: string;
+}[];
+
+export const composers: Composer = [
+  {
+    id: 1,
+    last_name: 'Bach',
+    first_name: 'Johann Sebastian',
+    first_abbreviation: 'J. S.',
+  },
+  {
+    id: 2,
+    last_name: 'Handel',
+    first_name: 'George Frideric',
+    first_abbreviation: 'G. F.',
+  },
+  {
+    id: 3,
+    last_name: 'Lully',
+    first_name: 'Jean-Baptiste',
+    first_abbreviation: 'J.-B.',
+  },
+  {
+    id: 4,
+    last_name: 'Finger',
+    first_name: 'Godfrey',
+    first_abbreviation: 'G.',
+  },
+  {
+    id: 5,
+    last_name: 'Paisible',
+    first_name: 'James',
+    first_abbreviation: 'J.',
+  },
+  {
+    id: 6,
+    last_name: 'Corrette',
+    first_name: 'Michel',
+    first_abbreviation: 'M.',
+  },
+  {
+    id: 7,
+    last_name: 'De Fesch',
+    first_name: 'Willem',
+    first_abbreviation: 'W.',
+  },
+  {
+    id: 8,
+    last_name: 'Fedeli "Saggione"',
+    first_name: 'Giuseppe',
+    first_abbreviation: 'G.',
+  },
+  {
+    id: 9,
+    last_name: 'Mell',
+    first_name: 'Davis',
+    first_abbreviation: 'D.',
+  },
+  {
+    id: 10,
+    last_name: 'Beckett',
+    first_name: 'Philip',
+    first_abbreviation: 'P.',
+  },
+  {
+    id: 11,
+    last_name: 'de Boismortier',
+    first_name: 'Joseph Bodin',
+    first_abbreviation: 'J. B.',
+  },
+  {
+    id: 12,
+    last_name: 'Philidor "L\'Aîné"',
+    first_name: 'André Danican',
+    first_abbreviation: 'A. D.',
+  },
+  {
+    id: 13,
+    last_name: 'Banister',
+    first_name: 'John',
+    first_abbreviation: 'J.',
+  },
+  {
+    id: 14,
+    last_name: 'King',
+    first_name: 'Robert',
+    first_abbreviation: 'R.',
+  },
+  {
+    id: 15,
+    last_name: 'Dowland',
+    first_name: 'John',
+    first_abbreviation: 'J.',
+  },
+  {
+    id: 16,
+    last_name: 'Ford',
+    first_name: 'Thomas',
+    first_abbreviation: 'T.',
+  },
+  {
+    id: 17,
+    last_name: 'Schein',
+    first_name: 'Johann Hermann',
+    first_abbreviation: 'J. H.',
+  },
+  {
+    id: 18,
+    last_name: 'Susato',
+    first_name: 'Tielman',
+    first_abbreviation: 'T.',
+  },
+  {
+    id: 19,
+    last_name: 'Widmann',
+    first_name: 'Erasmus',
+    first_abbreviation: 'E.',
+  },
+  {
+    id: 20,
+    last_name: 'Phalèse',
+    first_name: 'Pierre',
+    first_abbreviation: 'P.',
+  },
+  {
+    id: 21,
+    last_name: 'Fischer',
+    first_name: 'Johann Caspar Ferdinand',
+    first_abbreviation: 'J. C. F.',
+  },
+  {
+    id: 22,
+    last_name: 'Delavigne',
+    first_name: 'Philibert',
+    first_abbreviation: 'P.',
+  },
+  {
+    id: 23,
+    last_name: 'Chédeville',
+    first_name: 'Esprit-Philippe',
+    first_abbreviation: 'E.-P.',
+  },
+  {
+    id: 24,
+    last_name: 'Naudot',
+    first_name: 'Jacques-Christophe',
+    first_abbreviation: 'E.-P.',
+  },
+  {
+    id: 25,
+    last_name: 'Couperin',
+    first_name: 'François',
+    first_abbreviation: 'F',
+  },
+  {
+    id: 26,
+    last_name: 'Hassler',
+    first_name: 'Hans Leo',
+    first_abbreviation: 'H. L.',
+  },
+  {
+    id: 27,
+    last_name: 'Arbeau',
+    first_name: 'Thoinot',
+    first_abbreviation: 'T.',
+  },
+  {
+    id: 28,
+    last_name: 'del Encina',
+    first_name: 'Juan',
+    first_abbreviation: 'J.',
+  },
+  {
+    id: 29,
+    last_name: 'Gastoldi',
+    first_name: 'Giovanni Giacomo',
+    first_abbreviation: 'G. G.',
+  },
+  {
+    id: 30,
+    last_name: 'Anon.',
+    first_name: '',
+    first_abbreviation: '',
+  },
+  {
+    id: 31,
+    last_name: "de Caix d'Hervelois",
+    first_name: 'Louis',
+    first_abbreviation: 'L.',
+  },
+  {
+    id: 32,
+    last_name: 'Delalande',
+    first_name: 'Michel-Richard',
+    first_abbreviation: 'L.',
+  },
+  {
+    id: 33,
+    last_name: 'Franck',
+    first_name: 'Melchior',
+    first_abbreviation: 'M.',
+  },
+  {
+    id: 34,
+    last_name: 'Attaingnant',
+    first_name: 'Pierre',
+    first_abbreviation: 'P.',
+  },
+  {
+    id: 35,
+    last_name: 'Gervaise',
+    first_name: 'Claude',
+    first_abbreviation: 'C.',
+  },
+  {
+    id: 36,
+    last_name: 'de Sermisy',
+    first_name: 'Claudin',
+    first_abbreviation: 'C.',
+  },
+  {
+    id: 37,
+    last_name: 'Campion',
+    first_name: 'Thomas',
+    first_abbreviation: 'T.',
+  },
+  {
+    id: 38,
+    last_name: 'Kapsberger',
+    first_name: 'Giovanni Girolamo',
+    first_abbreviation: 'G. G.',
+  },
+  {
+    id: 39,
+    last_name: 'Keene',
+    first_name: 'Edward',
+    first_abbreviation: 'E.',
+  },
+  {
+    id: 40,
+    last_name: 'Hart',
+    first_name: 'James',
+    first_abbreviation: 'J.',
+  },
+  {
+    id: 41,
+    last_name: 'Bertin de la Doué',
+    first_name: 'Thomas',
+    first_abbreviation: 'T.',
+  },
+  {
+    id: 42,
+    last_name: 'Marquis de Dampierre',
+    first_name: 'Marc Antoine',
+    first_abbreviation: 'M. A.',
+  },
+  {
+    id: 43,
+    last_name: 'Bâton',
+    first_name: 'Charles',
+    first_abbreviation: 'C.',
+  },
+];
