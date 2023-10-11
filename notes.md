@@ -42,3 +42,43 @@ return (
 )
 }
 ```
+
+Query JSON AGG
+
+-> not quite correct, the grouping doesn't work yet!
+
+oriana_catalogue=> SELECT \* FROM editions_composers
+oriana_catalogue-> ;
+oriana_catalogue=>
+oriana_catalogue=> SELECT
+id,
+article_no,
+json_agg(composer_id)
+FROM
+editions_composers
+WHERE
+edition_id = 7;
+ERROR: column "editions_composers.id" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 2: id,
+^
+oriana_catalogue=> SELECT
+id,
+article_no,
+json_agg(composer_id)
+FROM
+editions_composers
+WHERE
+edition_id = 7
+GROUP BY
+editions_composers.id, editions_composers.article_no;
+id | article_no | json_agg
+----+------------+----------
+3 | OM503 | [1]
+4 | OM503 | [2]
+5 | OM503 | [3]
+6 | OM503 | [21]
+7 | OM503 | [30]
+8 | OM503 | [31]
+(6 rows)
+
+inner join

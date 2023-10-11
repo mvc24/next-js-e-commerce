@@ -1,9 +1,9 @@
-type Material = {
+export type Material = {
   id: number;
   format: string;
-}[];
+};
 
-export const materials: Material = [
+export const materials: Material[] = [
   {
     id: 1,
     format: '0',

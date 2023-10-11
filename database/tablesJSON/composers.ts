@@ -1,11 +1,6 @@
-type Composer = {
-  id: number;
-  lastName: string;
-  firstName: string; // nullable
-  firstAbbreviation: string; // nullable
-}[];
+import { Composer } from '../../migrations/00003-createTableComposers';
 
-export const composers: Composer = [
+export const composers: Composer[] = [
   {
     id: 1,
     lastName: 'Bach',
@@ -183,8 +178,8 @@ export const composers: Composer = [
   {
     id: 30,
     lastName: 'Anon.',
-    firstName: '',
-    firstAbbreviation: '',
+    firstName: null,
+    firstAbbreviation: null,
   },
   {
     id: 31,

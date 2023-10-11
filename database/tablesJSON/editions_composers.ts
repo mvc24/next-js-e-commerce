@@ -1,30 +1,56 @@
-type EditionsComposers = {
-  id: number;
-  editionId: number;
-  articleNo: string;
-  composerId: number[];
-}[];
+import { EditionsComposers } from '../../migrations/00005-createTableEditionsComposers';
 
-export const editionsComposers: EditionsComposers = [
+export const editionsComposers: EditionsComposers[] = [
   {
     id: 1,
     editionId: 1,
     articleNo: 'OM501',
-    composerId: [0],
+    composerId: null,
   },
   {
     id: 2,
     editionId: 2,
     articleNo: 'OM502',
-    composerId: [0],
+    composerId: null,
   },
   {
     id: 7,
     editionId: 7,
     articleNo: 'OM503',
-    composerId: [1, 2, 3, 21, 30, 32],
+    composerId: 1,
   },
   {
+    id: 7,
+    editionId: 7,
+    articleNo: 'OM503',
+    composerId: 2,
+  },
+  {
+    id: 7,
+    editionId: 7,
+    articleNo: 'OM503',
+    composerId: 3,
+  },
+  {
+    id: 7,
+    editionId: 7,
+    articleNo: 'OM503',
+    composerId: 21,
+  },
+  {
+    id: 7,
+    editionId: 7,
+    articleNo: 'OM503',
+    composerId: 30,
+  },
+  {
+    id: 7,
+    editionId: 7,
+    articleNo: 'OM503',
+    composerId: 31,
+  },
+
+  /* {
     id: 8,
     editionId: 8,
     articleNo: 'OM504',
@@ -215,5 +241,5 @@ export const editionsComposers: EditionsComposers = [
     editionId: 29,
     articleNo: 'OM533',
     composerId: [4, 9, 10, 30],
-  },
+  }, */
 ];

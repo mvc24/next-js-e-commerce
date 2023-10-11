@@ -1,18 +1,9 @@
 // change to pascal case
 //
 
-type Edition = {
-  id: number;
-  articleNo: string;
-  title: string;
-  supplementaryTitle: string; // could be null
-  price: number;
-  materialId: number; // could be null
-  categoryId: number;
-  instrumentNo: number;
-}[];
+import { Edition } from '../../migrations/00004-createTableEditions';
 
-export const editions: Edition = [
+export const editions: Edition[] = [
   {
     id: 1,
     articleNo: 'OM501',
@@ -78,7 +69,7 @@ export const editions: Edition = [
     articleNo: 'OM503',
     title:
       'Easy Baroque Pieces for Treble Viol with accompaniment for Bass Viol',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 10,
     materialId: 7,
     categoryId: 7,
@@ -110,7 +101,7 @@ export const editions: Edition = [
     id: 10,
     articleNo: 'OM505',
     title: 'Easy Baroque Pieces for Bass Viol with accompaniment for Bass Viol',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 11,
     materialId: 10,
     categoryId: 10,
@@ -121,7 +112,7 @@ export const editions: Edition = [
     articleNo: 'OM506',
     title:
       'Easy Renaissance Dances for Treble Viol with accompaniment for Bass Viol',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 11,
     materialId: 11,
     categoryId: 11,
@@ -132,7 +123,7 @@ export const editions: Edition = [
     articleNo: 'OM507',
     title:
       'Easy Renaissance Dances for Tenor Viol with accompaniment for Bass Viol',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 12,
     materialId: 12,
     categoryId: 12,
@@ -143,7 +134,7 @@ export const editions: Edition = [
     articleNo: 'OM508',
     title:
       'Easy Renaissance Dances for Bass Viol with accompaniment for Bass Viol',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 12,
     materialId: 13,
     categoryId: 13,
@@ -154,7 +145,7 @@ export const editions: Edition = [
     articleNo: 'OM509',
     title:
       'Renaissance Songs from Germany, France, Spain, England & Italy for Treble Viol with accompaniment for Bass Viol',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 12,
     materialId: 14,
     categoryId: 14,
@@ -165,7 +156,7 @@ export const editions: Edition = [
     articleNo: 'OM510',
     title:
       'Renaissance Songs from Germany, France, Spain, England & Italy for Tenor Viol with accompaniment for Bass Viol',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 13,
     materialId: 15,
     categoryId: 15,
@@ -176,7 +167,7 @@ export const editions: Edition = [
     articleNo: 'OM511',
     title:
       'Renaissance Songs from Germany, France, Spain, England & Italy for Bass Viol with accompaniment for Bass Viol',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 13,
     materialId: 16,
     categoryId: 16,
@@ -186,7 +177,7 @@ export const editions: Edition = [
     id: 17,
     articleNo: 'OM512',
     title: 'French Duets for two Treble Viols, Volume 1',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 17,
     materialId: 17,
     categoryId: 17,
@@ -196,7 +187,7 @@ export const editions: Edition = [
     id: 18,
     articleNo: 'OM513',
     title: 'French Duets for two Tenor Viols, Volume 1',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 17,
     materialId: 18,
     categoryId: 18,
@@ -206,7 +197,7 @@ export const editions: Edition = [
     id: 19,
     articleNo: 'OM514',
     title: 'French Duets for two Bass Viols, Volume 1',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 17,
     materialId: 19,
     categoryId: 19,
@@ -216,7 +207,7 @@ export const editions: Edition = [
     id: 20,
     articleNo: 'OM522',
     title: 'French Duets for two Treble Viols, Volume 2',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 18,
     materialId: 20,
     categoryId: 20,
@@ -226,7 +217,7 @@ export const editions: Edition = [
     id: 21,
     articleNo: 'OM523',
     title: 'French Duets for two Tenor Viols, Volume 2',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 18,
     materialId: 21,
     categoryId: 21,
@@ -236,7 +227,7 @@ export const editions: Edition = [
     id: 22,
     articleNo: 'OM524',
     title: 'French Duets for two Bass Viols, Volume 2',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 18,
     materialId: 22,
     categoryId: 22,
@@ -246,7 +237,7 @@ export const editions: Edition = [
     id: 23,
     articleNo: 'OM525',
     title: 'London Duos for two Treble Viols',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 16,
     materialId: 23,
     categoryId: 23,
@@ -256,7 +247,7 @@ export const editions: Edition = [
     id: 24,
     articleNo: 'OM526',
     title: 'London Duos for two Tenor Viols',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 16,
     materialId: 24,
     categoryId: 24,
@@ -266,7 +257,7 @@ export const editions: Edition = [
     id: 25,
     articleNo: 'OM527',
     title: 'London Duos for two Bass Viols',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 16,
     materialId: 25,
     categoryId: 25,
@@ -276,7 +267,7 @@ export const editions: Edition = [
     id: 26,
     articleNo: 'OM516',
     title: 'Ten Easy Duets for Tenor & Bass Viols from Op. 66',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 15,
     materialId: 26,
     categoryId: 26,
@@ -286,7 +277,7 @@ export const editions: Edition = [
     id: 27,
     articleNo: 'OM515',
     title: 'Ten Easy Duets for Bass Viols from Op. 66',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 15,
     materialId: 27,
     categoryId: 27,
@@ -296,7 +287,7 @@ export const editions: Edition = [
     id: 28,
     articleNo: 'OM532',
     title: 'Eight Easy Divisions for Tenor Viol',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 15,
     materialId: 28,
     categoryId: 28,
@@ -306,7 +297,7 @@ export const editions: Edition = [
     id: 29,
     articleNo: 'OM533',
     title: 'Eight Easy Divisions for Bass Viol',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 15,
     materialId: 29,
     categoryId: 29,
@@ -316,7 +307,7 @@ export const editions: Edition = [
     id: 30,
     articleNo: 'OM528',
     title: 'Three Sonatas and a Suite for two Treble Viols',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 16,
     materialId: 30,
     categoryId: 30,
@@ -326,7 +317,7 @@ export const editions: Edition = [
     id: 31,
     articleNo: 'OM529',
     title: 'Three Sonatas and a Suite for two Tenor Viols',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 16,
     materialId: 31,
     categoryId: 31,
@@ -336,7 +327,7 @@ export const editions: Edition = [
     id: 32,
     articleNo: 'OM530',
     title: 'Three Sonatas and a Suite for two Bass Viols',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 16,
     materialId: 32,
     categoryId: 32,
@@ -346,7 +337,7 @@ export const editions: Edition = [
     id: 33,
     articleNo: 'OM517',
     title: 'Four Suites for Tenor & Bass Viols from Pieces a deux Basses, 1700',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 17,
     materialId: 33,
     categoryId: 33,
@@ -356,7 +347,7 @@ export const editions: Edition = [
     id: 34,
     articleNo: 'OM518',
     title: 'Four Suites for two Bass Viols from Pieces a deux Basses, 1700',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 17,
     materialId: 34,
     categoryId: 34,
@@ -366,7 +357,7 @@ export const editions: Edition = [
     id: 35,
     articleNo: 'OM531',
     title: 'Six Easy Baroque Sonatas for Bass Viol & Basso Continuo',
-    supplementaryTitle: '',
+    supplementaryTitle: null,
     price: 20,
     materialId: 35,
     categoryId: 35,

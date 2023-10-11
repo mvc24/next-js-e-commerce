@@ -16,14 +16,12 @@ export async function up(sql: Sql) {
     CREATE TABLE editions(
       id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
       article_no varchar(10) NOT NULL,
-      title varchar(100) NOT NULL,
-      supplementary_title varchar(150),
+      title varchar(300) NOT NULL,
+      supplementary_title varchar(300),
       price integer NOT NULL,
-      material_id integer,
-      category_id integer NOT NULL,
+      material_id integer REFERENCES materials (id),
+      category_id integer NOT NULL REFERENCES categories (id),
       instrument_no integer NOT NULL
-
-
     )`;
 }
 

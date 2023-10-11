@@ -1,9 +1,4 @@
-type Category = {
-  id: number;
-  name: string;
-}[];
-
-export const categories: Category = [
+export const categories = [
   {
     id: 1,
     name: 'Viol Music for Beginners',
