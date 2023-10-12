@@ -9,19 +9,19 @@ import { cookies } from 'next/headers';
 import { getCookie } from '../../../util/cookies';
 import { parseJson } from '../../../util/json';
 
-export async function createOrUpdateCart(itemId, quantity) {
+export async function createOrUpdateCart(editionId, quantity) {
   const cartCookie = getCookie('cart');
   const cart = !cartCookie ? [] : parseJson(cartCookie);
 
   const cartToUpdate = cart.find((cartItem) => {
-    return cartItem.id === itemId;
+    return cartItem.id === editionId;
   });
 
   if (cartToUpdate) {
     cartToUpdate.quantity += quantity;
   } else {
     cart.push({
-      id: Number(itemId),
+      id: Number(editionId),
       quantity: Number(quantity),
     });
   }

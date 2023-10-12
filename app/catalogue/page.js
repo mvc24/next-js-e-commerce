@@ -1,26 +1,31 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { getItems } from '../../database/fakeCatalogue';
+import { getEditionsWithComposers } from '../../database/items';
+import paisible_page_2 from '../../public/images/paisible_Page_2.png';
 
 export const metadata = {
   title: 'Catalogue',
   description: 'The current Oriana Music Catalogue',
 };
 
-export default function Catalogue() {
-  const items = getItems();
+export default async function Catalogue() {
+  const editions = await getEditionsWithComposers();
+  console.log('editions', editions);
   return (
     <div>
       <h1>Oriana Music Catalogue</h1>
-      {items.map((item) => {
+      {editions.map((edition) => {
         return (
-          <div key={`item-div${item.id}`}>
-            <Link href={`/catalogue/${item.id}`}>
+          <div key={`edition-div${edition.id}`}>
+            <Link href={`/catalogue/${edition.id}`}>
               <div>
-                {item.composerFirstName} {item.composerLastName}
+                {edition.composerFirstName} {edition.composerLastName}
                 <br />
-                {item.title}
+                {edition.title}
                 <br />
-                <div>IMAGE!</div>
+                <div className="productImage">
+                  <Image src={paisible_page_2} alt="a title page" />
+                </div>
               </div>
             </Link>
           </div>

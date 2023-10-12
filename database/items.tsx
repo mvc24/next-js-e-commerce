@@ -54,7 +54,7 @@ export const getEditionsComposers = cache(async () => {
   return editionsComposers;
 });
 
-type EditionCompleteInformation = {
+export type EditionCompleteInformation = {
   editionId: number;
   articleNo: string;
   title: string;
@@ -67,6 +67,45 @@ type EditionCompleteInformation = {
   firstName: string | null;
   firstAbbreviation: string | null;
 };
+
+export const getEditionsWithComposers = cache(async () => {
+  const editions = await sql<EditionCompleteInformation[]>`
+    SELECT
+      editions.id,
+      editions.article_no,
+      editions.title,
+      editions.supplementary_title,
+      editions.price,
+      categories.name,
+      materials.format,
+      editions.instrument_no,
+      (
+        SELECT
+
+          json_agg(composer_id)
+        FROM
+          editions_composers
+        INNER JOIN
+          composers ON editions_composers.composer_id = composers.id
+        WHERE
+          editions_composers.edition_id = editions.id
+
+      ) AS edition_composers
+
+    FROM
+      editions
+    INNER JOIN
+      categories ON categories.id = editions.category_id
+    INNER JOIN
+      materials ON materials.id = editions.material_id
+
+
+
+
+
+  `;
+  return editions;
+});
 
 export const getEditionsWithComposersById = cache(async (id: number) => {
   const [edition] = await sql<EditionCompleteInformation[]>`

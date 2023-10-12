@@ -17,7 +17,7 @@ export default function AddItem(props) {
       <button
         data-test-id="product-add-to-cart"
         formAction={async () =>
-          await createOrUpdateCart(props.itemId, quantity)
+          await createOrUpdateCart(props.editionId, quantity)
         }
       >
         Add to cart
