@@ -1,10 +1,20 @@
 import { Sql } from 'postgres';
+import { Composer } from './00003-createTableComposers';
 
 export type EditionsComposers = {
   id: number;
   editionId: number;
   articleNo: string;
   composerId: number | null;
+};
+
+export type JsonAgg = Composer[];
+
+export type EditionsComposersWithJsonAgg = {
+  id: number;
+  editionId: number;
+  articleNo: string;
+  composerIdArray: JsonAgg | null;
 };
 
 export async function up(sql: Sql) {

@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getItem } from '../../../database/fakeCatalogue';
+import { getEditionsWithComposersById } from '../../../database/items';
 import AddItem from './AddItem';
 
 export function generateMetadata({ params }) {
@@ -9,12 +10,15 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function ItemPage(props) {
+export default async function ItemPage(props) {
   const singleItem = getItem(Number(props.params.itemId));
 
   if (!singleItem) {
     return notFound();
   }
+
+  const allEditions = await getEditionsWithComposersById(10);
+  console.log('allEditions', allEditions);
 
   return (
     <div>
