@@ -4,10 +4,7 @@ import { Material } from '../migrations/00001-createTableMaterials';
 import { Category } from '../migrations/00002-createTableCategories';
 import { Composer } from '../migrations/00003-createTableComposers';
 import { Edition } from '../migrations/00004-createTableEditions';
-import {
-  EditionsComposers,
-  EditionsComposersWithJsonAgg,
-} from '../migrations/00005-createTableEditionsComposers';
+import { EditionsComposers } from '../migrations/00005-createTableEditionsComposers';
 import { sql } from './connect';
 
 export const getEditions = cache(async () => {
@@ -57,8 +54,22 @@ export const getEditionsComposers = cache(async () => {
   return editionsComposers;
 });
 
+type EditionCompleteInformation = {
+  editionId: number;
+  articleNo: string;
+  title: string;
+  supplementaryTitle: string | null;
+  price: number;
+  category: string;
+  materials: string | null;
+  composerId: number[];
+  lastName: string;
+  firstName: string | null;
+  firstAbbreviation: string | null;
+};
+
 export const getEditionsWithComposersById = cache(async (id: number) => {
-  const [edition] = await sql<EditionsComposersWithJsonAgg[]>`
+  const [edition] = await sql<EditionCompleteInformation[]>`
     SELECT
       editions.id,
       editions.article_no,

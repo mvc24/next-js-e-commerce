@@ -1,24 +1,24 @@
 import { notFound } from 'next/navigation';
 import { getItem } from '../../../database/fakeCatalogue';
-import { getEditionsWithComposersById } from '../../../database/items';
 import AddItem from './AddItem';
 
 export function generateMetadata({ params }) {
+  console.log('params', params);
   const singleItem = getItem(Number(params.itemId));
   return {
     title: singleItem ? singleItem.title : '',
   };
 }
 
-export default async function ItemPage(props) {
+export default function ItemPage(props) {
   const singleItem = getItem(Number(props.params.itemId));
 
   if (!singleItem) {
     return notFound();
   }
-
-  const allEditions = await getEditionsWithComposersById(10);
-  console.log('allEditions', allEditions);
+  console.log('props', props);
+  /*  const allEditions = await getEditionsWithComposersById(10);
+  console.log('allEditions', allEditions); */
 
   return (
     <div>
