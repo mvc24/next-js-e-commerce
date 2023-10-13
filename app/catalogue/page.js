@@ -9,8 +9,11 @@ export const metadata = {
 };
 
 export default async function Catalogue() {
+  // const editions = await getEditionsWithComposers();
+  // console.log('editionsNames', editions);
+
   const editions = await getEditionsWithComposers();
-  console.log('editions', editions);
+  editions.forEach((c) => console.log(c.title, c.composers));
   return (
     <div>
       <h1>Oriana Music Catalogue</h1>
@@ -24,7 +27,11 @@ export default async function Catalogue() {
                 {edition.title}
                 <br />
                 <div className="productImage">
-                  <Image src={paisible_page_2} alt="a title page" />
+                  <Image
+                    src={paisible_page_2}
+                    alt="a title page"
+                    height={240}
+                  />
                 </div>
               </div>
             </Link>

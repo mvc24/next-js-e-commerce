@@ -62,7 +62,7 @@ export type EditionCompleteInformation = {
   price: number;
   category: string;
   materials: string | null;
-  composerId: number[];
+  composerId: number;
   lastName: string;
   firstName: string | null;
   firstAbbreviation: string | null;
@@ -82,7 +82,7 @@ export const getEditionsWithComposers = cache(async () => {
       (
         SELECT
 
-          json_agg(composer_id)
+          json_agg(composers)
         FROM
           editions_composers
         INNER JOIN
@@ -90,7 +90,7 @@ export const getEditionsWithComposers = cache(async () => {
         WHERE
           editions_composers.edition_id = editions.id
 
-      ) AS edition_composers
+      ) AS composers
 
     FROM
       editions
@@ -98,10 +98,6 @@ export const getEditionsWithComposers = cache(async () => {
       categories ON categories.id = editions.category_id
     INNER JOIN
       materials ON materials.id = editions.material_id
-
-
-
-
 
   `;
   return editions;
@@ -121,7 +117,7 @@ export const getEditionsWithComposersById = cache(async (id: number) => {
       (
         SELECT
 
-          json_agg(composer_id)
+          json_agg(composers)
         FROM
           editions_composers
         INNER JOIN
@@ -141,7 +137,6 @@ export const getEditionsWithComposersById = cache(async (id: number) => {
 
     WHERE
       editions.id = ${id}
-
 
   `;
   return edition;

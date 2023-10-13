@@ -37,11 +37,14 @@ export default async function EditionPage(props: Props) {
         <h2 className="supplementaryTitle">
           {singleEdition.supplementaryTitle}
         </h2>
-        <div className="composers">Composer, maybe I need a component</div>
+        <div className="composers">
+          {singleEdition.firstName}
+          Composer, maybe I need a component
+        </div>
         <p>{singleEdition.materials}</p>
       </div>
       <div className="productImage">
-        <Image src={paisible_page_2} alt="a title page" />
+        <Image src={paisible_page_2} alt="a title page" height={240} />
       </div>
       <div className="price">
         <span>€ </span>
