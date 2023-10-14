@@ -13,7 +13,10 @@ export default async function Catalogue() {
   // console.log('editionsNames', editions);
 
   const editions = await getEditionsWithComposers();
-  editions.forEach((c) => console.log(c.title, c.composers));
+  /*   editions.forEach((c) =>
+    console.log('editions for each', c.title, c.composers),
+  );
+  console.log(editions); */
   return (
     <div>
       <h1>Oriana Music Catalogue</h1>
@@ -22,7 +25,6 @@ export default async function Catalogue() {
           <div key={`edition-div${edition.id}`}>
             <Link href={`/catalogue/${edition.id}`}>
               <div>
-                {edition.composerFirstName} {edition.composerLastName}
                 <br />
                 {edition.title}
                 <br />

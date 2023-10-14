@@ -1,7 +1,5 @@
 import 'server-only';
 import { cache } from 'react';
-import { Material } from '../migrations/00001-createTableMaterials';
-import { Category } from '../migrations/00002-createTableCategories';
 import { Composer } from '../migrations/00003-createTableComposers';
 import { Edition } from '../migrations/00004-createTableEditions';
 import { EditionsComposers } from '../migrations/00005-createTableEditionsComposers';
@@ -34,14 +32,14 @@ export const getComposersById = cache(async (id: number) => {
 });
 
 export const getMaterials = cache(async () => {
-  const materials = await sql<Material[]>`
+  const materials = await sql<{ id: number; format: string | null }[]>`
     SELECT * FROM materials
   `;
   return materials;
 });
 
 export const getCategories = cache(async () => {
-  const categories = await sql<Category[]>`
+  const categories = await sql<{ id: number; name: string | null }[]>`
     SELECT * FROM categories
   `;
   return categories;
@@ -62,10 +60,16 @@ export type EditionCompleteInformation = {
   price: number;
   category: string;
   materials: string | null;
-  composerId: number;
-  lastName: string;
-  firstName: string | null;
-  firstAbbreviation: string | null;
+  editionComposers:
+    | [
+        {
+          composerId: number;
+          lastName: string;
+          firstName: string | null;
+          firstAbbreviation: string | null;
+        },
+      ]
+    | null;
 };
 
 export const getEditionsWithComposers = cache(async () => {

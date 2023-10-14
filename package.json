@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "build-css": "tailwindcss build src/styles.css -o public/styles.css",
+    "dev": "next dev",
     "lint": "next lint",
-    "migrate": "ley --require tsm"
+    "migrate": "ley --require tsm",
+    "start": "next start"
   },
   "dependencies": {
     "dotenv": "^16.3.1",
@@ -30,6 +31,7 @@
     "libpg-query": "^15.0.2",
     "stylelint": "^15.10.3",
     "stylelint-config-upleveled": "^1.0.2",
+    "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2"
   }
 }

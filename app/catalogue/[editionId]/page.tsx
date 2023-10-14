@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getEditionsWithComposersById } from '../../../database/items';
 import paisible_page_2 from '../../../public/images/paisible_Page_2.png';
 import AddItem from './AddItem';
+import Composers from './Composers';
 
 type Props = {
   params: {
@@ -25,10 +26,25 @@ export default async function EditionPage(props: Props) {
   const singleEdition = await getEditionsWithComposersById(
     props.params.editionId,
   );
-
+  console.log('singleEdition in single product page', singleEdition);
+  console.log(
+    'length of singleEdition.editionComposers',
+    singleEdition?.editionComposers?.length,
+  );
+  let editionWithComposers = [];
+  // console.log('info single edition', singleEdition?.editionComposers);
+  console.log('props.params.editionId in single edition page', props);
   if (!singleEdition) {
     return notFound();
   }
+
+  /* {return () => {
+      if (!singleEdition.editionComposers) {
+        return <div>someCase</div>;
+      } else {
+        return <div>catch all</div>;
+      }
+    } */
 
   return (
     <div>
@@ -38,8 +54,22 @@ export default async function EditionPage(props: Props) {
           {singleEdition.supplementaryTitle}
         </h2>
         <div className="composers">
-          {singleEdition.firstName}
-          Composer, maybe I need a component
+          {
+            !singleEdition.editionComposers
+              ? ''
+              : singleEdition.editionComposers.map((composer, index) => {
+                  console.log('index in map', index);
+                  return (
+                    <span key={`composer-id${composer.composerId}`}>
+                      {composer.firstAbbreviation} {composer.lastName}
+                      {singleEdition.editionComposers?.length === index + 1
+                        ? ''
+                        : ', '}
+                    </span>
+                  );
+                })
+            // : singleEdition.editionComposers.map((composers) => {})
+          }
         </div>
         <p>{singleEdition.materials}</p>
       </div>

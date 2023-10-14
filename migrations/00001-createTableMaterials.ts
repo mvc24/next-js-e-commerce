@@ -2,7 +2,7 @@ import { Sql } from 'postgres';
 
 export type Material = {
   id: number;
-  format: string;
+  format: string | null;
 };
 
 export async function up(sql: Sql) {
