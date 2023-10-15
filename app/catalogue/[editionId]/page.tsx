@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { getEditionsWithComposersById } from '../../../database/items';
 import paisible_page_2 from '../../../public/images/paisible_Page_2.png';
 import AddItem from './AddItem';
-import Composers from './Composers';
 
 type Props = {
   params: {
@@ -31,7 +30,7 @@ export default async function EditionPage(props: Props) {
     'length of singleEdition.editionComposers',
     singleEdition?.editionComposers?.length,
   );
-  let editionWithComposers = [];
+
   // console.log('info single edition', singleEdition?.editionComposers);
   console.log('props.params.editionId in single edition page', props);
   if (!singleEdition) {
@@ -74,7 +73,12 @@ export default async function EditionPage(props: Props) {
         <p>{singleEdition.materials}</p>
       </div>
       <div className="productImage">
-        <Image src={paisible_page_2} alt="a title page" height={240} />
+        <Image
+          data-test-id="product-image"
+          src={paisible_page_2}
+          alt="a title page"
+          height={240}
+        />
       </div>
       <div className="price">
         <span>€ </span>

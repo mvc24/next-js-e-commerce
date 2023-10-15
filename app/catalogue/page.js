@@ -23,7 +23,10 @@ export default async function Catalogue() {
       {editions.map((edition) => {
         return (
           <div key={`edition-div${edition.id}`}>
-            <Link href={`/catalogue/${edition.id}`}>
+            <Link
+              data-test-id={`product-${edition.id}`}
+              href={`/catalogue/${edition.id}`}
+            >
               <div>
                 <br />
                 {edition.title}
@@ -34,6 +37,9 @@ export default async function Catalogue() {
                     alt="a title page"
                     height={240}
                   />
+                </div>
+                <div>
+                  <span>€ {edition.price}</span>
                 </div>
               </div>
             </Link>

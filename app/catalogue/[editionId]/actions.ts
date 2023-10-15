@@ -9,13 +9,14 @@ import { cookies } from 'next/headers';
 import { getCookie } from '../../../util/cookies';
 import { parseJson } from '../../../util/json';
 
-export async function createOrUpdateCart(editionId, quantity) {
-  const cartCookie = getCookie('cart');
-  const cart = !cartCookie ? [] : parseJson(cartCookie);
+export async function createOrUpdateCart(editionId: number, quantity: number) {
+  const cart = getCookie();
 
-  const cartToUpdate = cart.find((cartItem) => {
-    return cartItem.id === editionId;
-  });
+  const cartToUpdate = cart.find(
+    (cartItem: { id: number; quantity: number }) => {
+      return cartItem.id === editionId;
+    },
+  );
 
   if (cartToUpdate) {
     cartToUpdate.quantity += quantity;

@@ -6,13 +6,14 @@ import { cookies } from 'next/headers';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
 
-export async function deleteItem(itemId) {
-  const cartCookie = getCookie('cart');
-  const cart = !cartCookie ? [] : parseJson(cartCookie);
+export async function deleteItem(itemId: number) {
+  const cart = getCookie();
 
-  const itemToDelete = cart.filter((cartItem) => {
-    return cartItem.id !== itemId;
-  });
+  const itemToDelete = cart.filter(
+    (cartItem: { id: number; quantity: number }) => {
+      return cartItem.id !== itemId;
+    },
+  );
 
   if (itemToDelete) {
     itemToDelete.quantity = undefined;

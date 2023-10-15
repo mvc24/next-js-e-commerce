@@ -3,6 +3,7 @@ import { cache } from 'react';
 import { Composer } from '../migrations/00003-createTableComposers';
 import { Edition } from '../migrations/00004-createTableEditions';
 import { EditionsComposers } from '../migrations/00005-createTableEditionsComposers';
+import { EditionInfoForCart } from '../util/functions';
 import { sql } from './connect';
 
 export const getEditions = cache(async () => {

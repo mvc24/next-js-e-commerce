@@ -1,4 +1,4 @@
-import './globals.scss';
+import './globals.css';
 import { Cormorant_Garamond } from 'next/font/google';
 import { getCookie } from '../util/cookies';
 import { parseJson } from '../util/json';

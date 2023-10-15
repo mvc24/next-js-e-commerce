@@ -1,28 +1,65 @@
-import { EditionCompleteInformation } from '../database/items';
-import { Composer } from '../migrations/00003-createTableComposers';
+import { Edition } from '../migrations/00004-createTableEditions';
 
-// change file name
-// names of composers from array of IDs
-
-export type ComposerNamesFromID = {
-  editionId: number; // from EditionCompleteInformation
-  composerId: number; // from Composer --> find
-  lastName: string;
-  firstName: string | null;
-  firstAbbreviation: string | null;
+export type EditionInfoForCart = {
+  editionId: number;
+  articleNo: string;
+  title: string;
+  price: number;
 };
 
-// editionsComposers are needed in the function
+export type CookieInformation = {
+  id: number;
+  quantity: number;
+};
 
-/* export function composerNamesFromArray(){
-  const editionsComposersArray =
+export type CartItem = {
+  id: number;
+  articleNo: string;
+  title: string;
+  price: number;
+  quantity: number;
+};
 
-  // for each composer Id inside the composersArray
-  // return name
+export async function getItemsInCart(
+  cartInfoFromCookie: CookieInformation[],
+  editions: Edition[],
+): Promise<CartItem[]> {
+  try {
+    const cartItemsWithQuantity = await cartInfoFromCookie.map(
+      (item: CookieInformation) => {
+        const itemId: number = Number(item.id);
+        const edition: Edition = editions.find(
+          (ed: Edition) => Number(ed.id) === itemId,
+        )!;
 
-  return
+        const quantity = item.quantity;
 
-} */
+        return {
+          id: edition.id,
+          title: edition.title,
+          price: edition.price,
+          quantity: quantity,
+        } as CartItem;
+      },
+    );
+    return cartItemsWithQuantity;
+  } catch (error) {
+    console.error('Error: ', error);
+    throw error;
+  }
+}
+
+export function itemSubtotal(price: number, quantity: number) {
+  return price * quantity;
+}
+
+export function cartTotalSum(cartItems: CartItem[]) {
+  let sum = 0;
+  cartItems.forEach((item) => {
+    sum += item.price * item.quantity;
+  });
+  return sum;
+}
 
 // functioning cart sum function
 // cartItems Type needs to be passed from
@@ -33,14 +70,3 @@ export type ComposerNamesFromID = {
   });
   return sum;
 } */
-
-/* export function calculateTotalPrice() {
-  const addItemsToCart = addToCart();
-  const itemsToCalculate = addItemsToCart;
-  const totalPrice = itemsToCalculate.reduce(
-    (accumulator, currentValue) =>
-      accumulator + currentValue.price * currentValue.quantity,
-    0,
-  );
-
-  return totalPrice; */
