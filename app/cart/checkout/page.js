@@ -1,4 +1,4 @@
-import { calculateTotalPrice } from '../page';
+import { cartTotalSum } from '../../../util/functions';
 import CheckoutForm from './CheckoutForm';
 
 export const metadata = {
@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default function Checkout() {
-  const totalPrice = calculateTotalPrice();
+  const totalPrice = cartTotalSum();
 
   return (
     <>

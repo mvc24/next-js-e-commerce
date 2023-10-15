@@ -7,7 +7,6 @@
 
 import { cookies } from 'next/headers';
 import { getCookie } from '../../../util/cookies';
-import { parseJson } from '../../../util/json';
 
 export async function createOrUpdateCart(editionId: number, quantity: number) {
   const cart = getCookie();

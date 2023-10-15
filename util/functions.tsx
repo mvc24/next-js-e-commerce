@@ -54,11 +54,23 @@ export function itemSubtotal(price: number, quantity: number) {
 }
 
 export function cartTotalSum(cartItems: CartItem[]) {
-  let sum = 0;
-  cartItems.forEach((item) => {
-    sum += item.price * item.quantity;
-  });
-  return sum;
+  let sum: number = 0;
+  if (Array.isArray(cartItems)) {
+    cartItems.forEach((item) => {
+      sum += item.price * item.quantity;
+    });
+    return sum;
+  }
+}
+
+export function numberOfItemsInCart(cartItems: CartItem[]) {
+  if (Array.isArray(cartItems)) {
+    const itemCount = cartItems.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.quantity,
+      0,
+    );
+    return itemCount;
+  }
 }
 
 // functioning cart sum function

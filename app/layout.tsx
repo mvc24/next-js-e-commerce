@@ -1,6 +1,7 @@
 import './globals.css';
 import { Cormorant_Garamond } from 'next/font/google';
 import { getCookie } from '../util/cookies';
+import { CookieInformation } from '../util/functions';
 import { parseJson } from '../util/json';
 import Header from './Header';
 
@@ -16,14 +17,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const year = new Date().getFullYear();
-  const allItemsFromCookie = getCookie('cart');
-  const parsedCookie = parseJson(allItemsFromCookie);
+  const cookie: CookieInformation = getCookie();
 
   return (
     <html lang="en">
       <body className={mainFont.className}>
         <nav className="navigation">
-          <Header itemsInCart={parsedCookie} />
+          <Header itemsInCart={cookie} />
         </nav>
         <div className="content">{children}</div>
         <footer>© {year} Richard W. Carter </footer>
