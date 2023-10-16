@@ -27,18 +27,18 @@ export default async function EditionPage(props: Props) {
   );
   console.log('singleEdition in single product page', singleEdition);
   console.log(
-    'length of singleEdition.editionComposers',
-    singleEdition?.editionComposers?.length,
+    'length of singleEdition.composers',
+    singleEdition?.composers?.length,
   );
 
-  // console.log('info single edition', singleEdition?.editionComposers);
+  // console.log('info single edition', singleEdition?.composers);
   console.log('props.params.editionId in single edition page', props);
   if (!singleEdition) {
     return notFound();
   }
 
   /* {return () => {
-      if (!singleEdition.editionComposers) {
+      if (!singleEdition.composers) {
         return <div>someCase</div>;
       } else {
         return <div>catch all</div>;
@@ -54,23 +54,23 @@ export default async function EditionPage(props: Props) {
         </h2>
         <div className="composers">
           {
-            !singleEdition.editionComposers
+            !singleEdition.composers
               ? ''
-              : singleEdition.editionComposers.map((composer, index) => {
+              : singleEdition.composers.map((composer, index) => {
                   console.log('index in map', index);
                   return (
-                    <span key={`composer-id${composer.composerId}`}>
+                    <span key={`composer-id${composer.id}`}>
                       {composer.firstAbbreviation} {composer.lastName}
-                      {singleEdition.editionComposers?.length === index + 1
+                      {singleEdition.composers?.length === index + 1
                         ? ''
                         : ', '}
                     </span>
                   );
                 })
-            // : singleEdition.editionComposers.map((composers) => {})
+            // : singleEdition.composers.map((composers) => {})
           }
         </div>
-        <p>{singleEdition.materials}</p>
+        <p>{singleEdition.format}</p>
       </div>
       <div className="productImage">
         <Image

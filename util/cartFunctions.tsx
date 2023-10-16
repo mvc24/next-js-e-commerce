@@ -72,13 +72,3 @@ export function numberOfItemsInCart(cartItems: CartItem[]) {
     return itemCount;
   }
 }
-
-// functioning cart sum function
-// cartItems Type needs to be passed from
-/* export function cartTotalSum(cartItems) {
-  let sum = 0;
-  cartItems.forEach((item) => {
-    sum += item.price * item.quantity;
-  });
-  return sum;
-} */

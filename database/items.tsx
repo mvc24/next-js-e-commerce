@@ -2,8 +2,10 @@ import 'server-only';
 import { cache } from 'react';
 import { Composer } from '../migrations/00003-createTableComposers';
 import { Edition } from '../migrations/00004-createTableEditions';
-import { EditionsComposers } from '../migrations/00005-createTableEditionsComposers';
-import { EditionInfoForCart } from '../util/functions';
+import {
+  EditionsComposers,
+  JsonAgg,
+} from '../migrations/00005-createTableEditionsComposers';
 import { sql } from './connect';
 
 export const getEditions = cache(async () => {
@@ -73,8 +75,20 @@ export type EditionCompleteInformation = {
     | null;
 };
 
+export type EditionCompleteForQuery = {
+  id: number;
+  articleNo: string;
+  title: string;
+  supplementaryTitle: string | null;
+  price: number;
+  name: string;
+  format: string | null;
+  instrumentNo: number;
+  composers: JsonAgg | null;
+};
+
 export const getEditionsWithComposers = cache(async () => {
-  const editions = await sql<EditionCompleteInformation[]>`
+  const editions = await sql<EditionCompleteForQuery[]>`
     SELECT
       editions.id,
       editions.article_no,
@@ -105,11 +119,12 @@ export const getEditionsWithComposers = cache(async () => {
       materials ON materials.id = editions.material_id
 
   `;
+
   return editions;
 });
 
 export const getEditionsWithComposersById = cache(async (id: number) => {
-  const [edition] = await sql<EditionCompleteInformation[]>`
+  const [edition] = await sql<EditionCompleteForQuery[]>`
     SELECT
       editions.id,
       editions.article_no,
@@ -130,7 +145,7 @@ export const getEditionsWithComposersById = cache(async (id: number) => {
         WHERE
           editions_composers.edition_id = editions.id
 
-      ) AS edition_composers
+      ) AS composers
 
     FROM
       editions

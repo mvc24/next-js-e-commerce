@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import ConfirmOrderButton from './ConfirmOrderButton';
 
 export default function CheckoutForm() {
   const router = useRouter();
@@ -152,9 +153,7 @@ export default function CheckoutForm() {
           required
         />
       </label>
-      <button name="confirmOrder" onChange={handleChange}>
-        Go to checkout
-      </button>
+      <ConfirmOrderButton />
     </form>
   );
 }

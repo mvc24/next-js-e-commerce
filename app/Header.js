@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { numberOfItemsInCart } from '../util/cartItems';
+import { numberOfItemsInCart } from '../util/cartFunctions';
 import styles from './Header.module.scss';
 
 /* !!! When I style the element I have to put the counter in an element with

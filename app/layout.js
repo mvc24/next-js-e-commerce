@@ -1,8 +1,6 @@
 import './globals.css';
 import { Cormorant_Garamond } from 'next/font/google';
 import { getCookie } from '../util/cookies';
-import { CookieInformation } from '../util/functions';
-import { parseJson } from '../util/json';
 import Header from './Header';
 
 const mainFont = Cormorant_Garamond({
@@ -17,7 +15,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const year = new Date().getFullYear();
-  const cookie: CookieInformation = getCookie();
+  const cookie = getCookie();
 
   return (
     <html lang="en">

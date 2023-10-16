@@ -1,13 +1,13 @@
 import { getEditions } from '../../database/items';
 import { Edition } from '../../migrations/00004-createTableEditions';
-import { getCookie } from '../../util/cookies';
 import {
   CartItem,
   cartTotalSum,
   CookieInformation,
   getItemsInCart,
   itemSubtotal,
-} from '../../util/functions';
+} from '../../util/cartFunctions';
+import { getCookie } from '../../util/cookies';
 import GoToCheckoutButton from './GoToCheckoutButton';
 import RemoveItemButton from './RemoveItemButton';
 

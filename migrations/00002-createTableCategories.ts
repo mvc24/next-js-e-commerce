@@ -9,7 +9,7 @@ export async function up(sql: Sql) {
   await sql`
     CREATE TABLE categories(
       id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-      name varchar(300)
+      name varchar(300) NOT NULL
 
     )`;
 }

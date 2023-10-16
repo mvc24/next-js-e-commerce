@@ -22,8 +22,8 @@ export async function up(sql: Sql) {
     CREATE TABLE editions_composers(
       id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
       article_no varchar(10) NOT NULL,
-      edition_id integer NOT NULL REFERENCES editions (id),
-      composer_id integer REFERENCES composers (id)
+      edition_id integer NOT NULL REFERENCES editions (id) ON DELETE CASCADE,
+      composer_id integer REFERENCES composers (id) ON DELETE CASCADE
 
     )`;
 }
