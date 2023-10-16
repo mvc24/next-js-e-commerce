@@ -1,5 +1,6 @@
 import 'server-only';
 import { cache } from 'react';
+import { Category } from '../migrations/00002-createTableCategories';
 import { Composer } from '../migrations/00003-createTableComposers';
 import { Edition } from '../migrations/00004-createTableEditions';
 import {
@@ -42,7 +43,7 @@ export const getMaterials = cache(async () => {
 });
 
 export const getCategories = cache(async () => {
-  const categories = await sql<{ id: number; name: string | null }[]>`
+  const categories = await sql<Category[]>`
     SELECT * FROM categories
   `;
   return categories;

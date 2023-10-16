@@ -1,18 +1,23 @@
-// Unit: Test function for updating quantity in item of cookie (eg. adding an item to the cart that already exists)
 import { expect, test } from '@jest/globals';
-import { numberOfItemsInCart } from '../cartFunctions';
+import { cartTotalSum } from '../cartFunctions';
 
-test('test get number items in cart', () => {
-  const cookieInformation = [
+test('test get total sum for items in cart', () => {
+  const cartItems = [
     {
       id: 1,
+      articleNo: 'abc',
+      title: 'title1',
+      price: 10,
       quantity: 1,
     },
     {
       id: 2,
+      articleNo: 'abc',
+      title: 'title2',
+      price: 20,
       quantity: 2,
     },
   ];
 
-  expect(numberOfItemsInCart(cookieInformation)).toEqual(3);
+  expect(cartTotalSum(cartItems)).toBe(50);
 });
