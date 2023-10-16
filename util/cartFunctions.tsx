@@ -63,7 +63,7 @@ export function cartTotalSum(cartItems: CartItem[]) {
   }
 }
 
-export function numberOfItemsInCart(cartItems: CartItem[]) {
+export function numberOfItemsInCart(cartItems: CookieInformation[]) {
   if (Array.isArray(cartItems)) {
     const itemCount = cartItems.reduce(
       (accumulator, currentValue) => accumulator + currentValue.quantity,
