@@ -1,4 +1,3 @@
-import './globals.css';
 import { Cormorant_Garamond } from 'next/font/google';
 import { getCookie } from '../util/cookies';
 import Header from './Header';

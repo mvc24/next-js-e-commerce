@@ -4,11 +4,10 @@ import { getEditionsWithComposersById } from '../../../database/items';
 import paisible_page_2 from '../../../public/images/paisible_Page_2.png';
 import AddItem from './AddItem';
 
-type Props = {
+export type Props = {
   params: {
     editionId: number;
   };
-  quantity: number;
 };
 
 export async function generateMetadata(props: Props) {
@@ -53,24 +52,19 @@ export default async function EditionPage(props: Props) {
           {singleEdition.supplementaryTitle}
         </h2>
         <div className="composers">
-          {
-            !singleEdition.composers
-              ? ''
-              : singleEdition.composers.map((composer, index) => {
-                  console.log('index in map', index);
-                  return (
-                    <span key={`composer-id${composer.id}`}>
-                      {composer.firstAbbreviation} {composer.lastName}
-                      {singleEdition.composers?.length === index + 1
-                        ? ''
-                        : ', '}
-                    </span>
-                  );
-                })
-            // : singleEdition.composers.map((composers) => {})
-          }
+          {!singleEdition.composers
+            ? ''
+            : singleEdition.composers.map((composer, index) => {
+                console.log('index in map', index);
+                return (
+                  <span key={`composer-id${composer.id}`}>
+                    {composer.firstAbbreviation} {composer.lastName}
+                    {singleEdition.composers?.length === index + 1 ? '' : ', '}
+                  </span>
+                );
+              })}
         </div>
-        <p>{singleEdition.format}</p>
+        <p>{singleEdition.format === null ? '' : singleEdition.format}</p>
       </div>
       <div className="productImage">
         <Image

@@ -1,32 +1,32 @@
 export type Material = {
   id: number;
-  format: string;
+  format: string | null;
 };
 
 export const materials: Material[] = [
   {
     id: 1,
-    format: '0',
+    format: null,
   },
   {
     id: 2,
-    format: '0',
+    format: null,
   },
   {
     id: 3,
-    format: '0',
+    format: null,
   },
   {
     id: 4,
-    format: '0',
+    format: null,
   },
   {
     id: 5,
-    format: '0',
+    format: null,
   },
   {
     id: 6,
-    format: '0',
+    format: null,
   },
   {
     id: 7,

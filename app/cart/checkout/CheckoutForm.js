@@ -123,6 +123,10 @@ export default function CheckoutForm() {
           data-test-id="checkout-credit-card"
           name="creditCardNumber"
           type="tel"
+          maxLength={19}
+          pattern="[0-9\s]{13,19}"
+          autoComplete="cc-number"
+          placeholder="xxxx xxxx xxxx xxxx"
           inputMode="numeric"
           value={formData.creditCardNumber}
           onChange={handleChange}
@@ -134,7 +138,9 @@ export default function CheckoutForm() {
         <input
           data-test-id="checkout-expiration-date"
           name="expirationDate"
-          pattern="([0-9]{2}[/]?){2}"
+          maxLength={7}
+          placeholder="MM/YY"
+          type="tel"
           value={formData.expirationDate}
           onChange={handleChange}
           required

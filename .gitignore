@@ -39,3 +39,8 @@ next-env.d.ts
 
 # database connection
 .env
+
+
+playwright/test-results/
+/playwright-report/
+/playwright/.cache/
